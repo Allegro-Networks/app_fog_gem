@@ -2,11 +2,13 @@ require 'test/unit'
 
 class TestAppFog < Test::Unit::TestCase
 	def test_login
-		login
+		username = 'username'
+		password = 'password'
+		login(username, password)
 		assert_equal 'af login --email username --passwd password', @command
 	end
 
-	def login
-		@command = "af login --email username --passwd password"
+	def login(username, password)
+		@command = "af login --email #{username} --passwd #{password}"
 	end
 end
