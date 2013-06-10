@@ -9,6 +9,11 @@ class TestAppFog < Test::Unit::TestCase
 	end
 
 	def login(username, password)
-		@command = "af login --email #{username} --passwd #{password}"
+		sh "af login --email #{username} --passwd #{password}"
+	end
+
+	def sh(command)
+		@command = command
 	end
 end
+
