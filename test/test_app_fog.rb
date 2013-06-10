@@ -12,8 +12,9 @@ class TestAppFog < Test::Unit::TestCase
 		assert_equal 'af login --email username --passwd password', @command
 	end
 
-	def login(username, password)
-		sh "af login --email #{username} --passwd #{password}"
+	def test_integration
+		appfog = AppFog.new
+		appfog.login('bob', 'jeremy')
 	end
 
 	def sh(command)
