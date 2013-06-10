@@ -14,8 +14,6 @@ class TestAppFog < Test::Unit::TestCase
 		credentials.password = password
 
 		appfog = AppFog.new(credentials, self)
-
-		appfog.login(username, password)
 		assert_equal 'af login --email username --passwd password', @command
 	end
 
@@ -26,7 +24,6 @@ class TestAppFog < Test::Unit::TestCase
 		credentials.password = 'jeremy'
 
 		appfog = AppFog.new(credentials)
-		appfog.login('bob', 'jeremy')
 	end
 
 	def perform(command)

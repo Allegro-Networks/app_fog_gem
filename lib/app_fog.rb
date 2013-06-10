@@ -4,10 +4,11 @@ class AppFog
 		@shell_command = shell_command
 		@username = credentials.username
 		@password = credentials.password
+		login
 	end
 
-	def login(username, password)
-		@shell_command.perform "af login --email #{username} --passwd #{password}"
+	def login
+		@shell_command.perform "af login --email #{@username} --passwd #{@password}"
 	end	
 end
 
