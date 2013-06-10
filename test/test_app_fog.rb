@@ -23,9 +23,11 @@ end
 
 class AppFog
 	def initialize(fileutils = FileUtils)
-	
+		@fileutils = fileutils
 	end
 
-
+	def login(username, password)
+		fileutils.sh "af login --email #{username} --passwd #{password}"
+	end	
 end
 
