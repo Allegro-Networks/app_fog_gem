@@ -23,7 +23,7 @@ class TestAppFog < Test::Unit::TestCase
 end
 
 class AppFog
-	def initialize(shell_command = ShellCommandWrapper)
+	def initialize(shell_command = ShellCommandWrapper.new)
 		@shell_command = shell_command
 	end
 
@@ -32,9 +32,16 @@ class AppFog
 	end	
 end
 
+def TestShellCommandWrapper
+end
+
 class ShellCommandWrapper
-	def self.perform(command)
-		stdin, stdout, stderr = Open3.popen3 command
+	def initialize(open3 = Open3)
+		@open3 = open3
+	end
+
+	def perform(command)
+		stdin, stdout, stderr = @open3.popen3 command
 	end
 end
 
