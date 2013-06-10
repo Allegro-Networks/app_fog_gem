@@ -1,6 +1,6 @@
 
 class AppFog
-	def initialize(shell_command = ShellCommandWrapper.new)
+	def initialize(username, password, shell_command = ShellCommandWrapper.new())
 		@shell_command = shell_command
 	end
 
