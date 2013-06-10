@@ -1,5 +1,6 @@
 require 'test/unit'
 require 'Open3'
+require './test_shell_command_wrapper.rb'
 
 class TestAppFog < Test::Unit::TestCase
 	def test_login
@@ -32,25 +33,4 @@ class AppFog
 	end	
 end
 
-class TestShellCommandWrapper < Test::Unit::TestCase
-	def test_send_command
-		shell = ShellCommandWrapper.new(self)
-		shell.perform('bob')
-		assert_equal(@command, 'bob')
-	end
-
-	def popen3(command)
-		@command = command
-	end
-end
-
-class ShellCommandWrapper
-	def initialize(open3 = Open3)
-		@open3 = open3
-	end
-
-	def perform(command)
-		stdin, stdout, stderr = @open3.popen3 command
-	end
-end
 

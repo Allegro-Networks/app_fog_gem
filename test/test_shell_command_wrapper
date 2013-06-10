@@ -1,0 +1,50 @@
+require 'test/unit'
+
+class TestShellCommandWrapper < Test::Unit::TestCase
+	def test_send_command
+		shell = ShellCommandWrapper.new(self)
+		shell.perform('bob')
+		assert_equal(@command, 'bob')
+	end
+
+	def test_throws_error_when_cannot_log_in
+		@output = FakeStdOut.new('Problem with login, invalid account or password when attempting to login to')
+		assert_raise LoginError do
+			shell = ShellCommandWrapper.new(self)
+			shell.perform('af login --email username --passwd password')
+		end
+	end
+
+	def popen3(command)
+		@command = command
+		stdout = @output
+	end
+end
+
+class FakeStdOut
+	def initialize(output)
+		@output = output
+	end
+
+	def read
+		return @output
+	end
+end
+
+class ShellCommandWrapper
+	def initialize(open3 = Open3)
+		@open3 = open3
+	end
+
+	def perform(command)
+		stdin, stdout, stderr = @open3.popen3 command
+		if (stdout != nil && stdout.read.contains('Problem'))
+			raise LoginError
+		end
+	end
+end
+
+
+class LoginError < StandardError
+
+end
