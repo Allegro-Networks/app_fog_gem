@@ -24,6 +24,13 @@ class TestAppFog < Test::Unit::TestCase
 		assert_equal 'af update app-name', @command
 	end
 
+	def test_start
+		credentials = Credentials.new
+		appfog = AppFog.new(credentials, self)
+		appfog.start('app-name')
+		assert_equal 'af start app-name', @command
+	end
+
 	def perform(command)
 		@command = command
 	end

@@ -14,6 +14,10 @@ class AppFog
 	def update(app_name)
 		@shell_command.perform "af update #{app_name}"
 	end
+
+	def start(app_name)
+		@shell_command.perform "af start #{app_name}"
+	end
 end
 
 class Credentials
