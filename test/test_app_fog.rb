@@ -6,9 +6,9 @@ class TestAppFog < Test::Unit::TestCase
 		username = 'username'
 		password = 'password'
 		
-		appfog = AppFog.new
+		appfog = AppFog.new(self)
 
-		login(username, password)
+		appfog.login(username, password)
 		assert_equal 'af login --email username --passwd password', @command
 	end
 
@@ -27,7 +27,7 @@ class AppFog
 	end
 
 	def login(username, password)
-		fileutils.sh "af login --email #{username} --passwd #{password}"
+		@fileutils.sh "af login --email #{username} --passwd #{password}"
 	end	
 end
 
