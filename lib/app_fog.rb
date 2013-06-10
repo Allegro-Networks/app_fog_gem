@@ -12,7 +12,7 @@ class AppFog
 	end	
 
 	def update(app_name)
-		@shell_command.perform "af update app-name"
+		@shell_command.perform "af update #{app_name}"
 	end
 end
 

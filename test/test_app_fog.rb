@@ -24,15 +24,6 @@ class TestAppFog < Test::Unit::TestCase
 		assert_equal 'af update app-name', @command
 	end
 
-	def test_integration
-		credentials = Credentials.new
-
-		credentials.username = 'bob'
-		credentials.password = 'jeremy'
-
-		appfog = AppFog.new(credentials)
-	end
-
 	def perform(command)
 		@command = command
 	end
