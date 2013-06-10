@@ -17,6 +17,13 @@ class TestAppFog < Test::Unit::TestCase
 		assert_equal 'af login --email username --passwd password', @command
 	end
 
+	def test_update
+		credentials = Credentials.new
+		appfog = AppFog.new(credentials, self)
+		appfog.update
+		assert_equal 'af update app-name', @command
+	end
+
 	def test_integration
 		credentials = Credentials.new
 

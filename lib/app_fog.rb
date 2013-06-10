@@ -10,6 +10,10 @@ class AppFog
 	def login
 		@shell_command.perform "af login --email #{@username} --passwd #{@password}"
 	end	
+
+	def update
+		@shell_command.perform "af update app-name"
+	end
 end
 
 class Credentials
