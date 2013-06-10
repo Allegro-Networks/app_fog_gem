@@ -1,4 +1,5 @@
 require 'test/unit'
+require '../lib/shell_command_wrapper.rb'
 
 class TestShellCommandWrapper < Test::Unit::TestCase
 	def test_send_command
@@ -32,24 +33,4 @@ class FakeStdOut
 	def read
 		return @output
 	end
-end
-
-class ShellCommandWrapper
-	def initialize(open3 = Open3)
-		@open3 = open3
-	end
-
-	def perform(command)
-		stdin, stdout, stderr = @open3.popen3 command
-		output = stdout.read unless stdout == nil
-
-		if (output != nil && output.include?('Problem with login, invalid account or password when attempting to login to'))
-			raise LoginError.new(output)
-		end
-	end
-end
-
-
-class LoginError < StandardError
-
 end
