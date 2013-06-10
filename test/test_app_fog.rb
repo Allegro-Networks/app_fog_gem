@@ -32,7 +32,15 @@ class AppFog
 	end	
 end
 
-def TestShellCommandWrapper
+class TestShellCommandWrapper < Test::Unit::TestCase
+	def test_send_command
+		shell = ShellCommandWrapper.new(self)
+		shell.perform('bob')
+		assert_equal(@command, 'bob')
+	end
+
+	def popen3
+	end
 end
 
 class ShellCommandWrapper
