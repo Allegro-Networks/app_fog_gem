@@ -1,6 +1,7 @@
 require 'test/unit'
 require 'Open3'
 require './test_shell_command_wrapper.rb'
+require '../lib/app_fog.rb'
 
 class TestAppFog < Test::Unit::TestCase
 	def test_login
@@ -23,14 +24,6 @@ class TestAppFog < Test::Unit::TestCase
 	end
 end
 
-class AppFog
-	def initialize(shell_command = ShellCommandWrapper.new)
-		@shell_command = shell_command
-	end
 
-	def login(username, password)
-		@shell_command.perform "af login --email #{username} --passwd #{password}"
-	end	
-end
 
 
