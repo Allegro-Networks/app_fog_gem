@@ -8,14 +8,24 @@ class TestAppFog < Test::Unit::TestCase
 		username = 'username'
 		password = 'password'
 		
-		appfog = AppFog.new(username, password, self)
+		credentials = Credentials.new
+
+		credentials.username = username
+		credentials.password = password
+
+		appfog = AppFog.new(credentials, self)
 
 		appfog.login(username, password)
 		assert_equal 'af login --email username --passwd password', @command
 	end
 
 	def test_integration
-		appfog = AppFog.new('bob', 'jeremy')
+		credentials = Credentials.new
+
+		credentials.username = 'bob'
+		credentials.password = 'jeremy'
+
+		appfog = AppFog.new(credentials)
 		appfog.login('bob', 'jeremy')
 	end
 
@@ -23,7 +33,6 @@ class TestAppFog < Test::Unit::TestCase
 		@command = command
 	end
 end
-
 
 
 
