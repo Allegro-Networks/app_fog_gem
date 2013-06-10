@@ -1,5 +1,5 @@
 require 'test/unit'
-require 'fileutils'
+require 'Open3'
 
 class TestAppFog < Test::Unit::TestCase
 	def test_login
@@ -34,7 +34,7 @@ end
 
 class ShellCommandWrapper
 	def self.perform(command)
-		`#{command}`
+		stdin, stdout, stderr = Open3.popen3 command
 	end
 end
 
