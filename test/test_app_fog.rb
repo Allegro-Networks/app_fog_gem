@@ -17,18 +17,24 @@ class TestAppFog < Test::Unit::TestCase
 		appfog.login('bob', 'jeremy')
 	end
 
-	def sh(command)
+	def perform(command)
 		@command = command
 	end
 end
 
 class AppFog
-	def initialize(fileutils = FileUtils)
-		@fileutils = fileutils
+	def initialize(shell_command = ShellCommandWrapper)
+		@shell_command = shell_command
 	end
 
 	def login(username, password)
-		@fileutils.sh "af login --email #{username} --passwd #{password}"
+		@shell_command.perform "af login --email #{username} --passwd #{password}"
 	end	
+end
+
+class ShellCommandWrapper
+	def self.perform(command)
+		`#{command}`
+	end
 end
 
