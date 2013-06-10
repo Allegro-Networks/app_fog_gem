@@ -39,7 +39,8 @@ class TestShellCommandWrapper < Test::Unit::TestCase
 		assert_equal(@command, 'bob')
 	end
 
-	def popen3
+	def popen3(command)
+		@command = command
 	end
 end
 
