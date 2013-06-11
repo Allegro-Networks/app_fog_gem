@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.authors     = ["@ruby_gem"]
   s.email       = 'gemma.cameron@gmail.com'
   s.files       = `git ls-files`.split("\n")
+  s.require_paths = ["lib"]
   s.test_files  = ['test/test_app_fog.rb', 'test/test_shell_command_wrapper.rb']
   s.homepage    = 'http://rubygems.org/gems/app_fog'
 
