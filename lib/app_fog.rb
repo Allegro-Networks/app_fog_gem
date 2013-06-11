@@ -1,4 +1,4 @@
-require 'appfog/shell_command_wrapper'
+require 'app_fog/shell_command_wrapper.rb'
 
 class AppFog
 	def initialize(parameters)
