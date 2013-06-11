@@ -1,7 +1,6 @@
 require 'test/unit'
 require 'Open3'
-require './test_shell_command_wrapper.rb'
-require '../lib/app_fog.rb'
+require 'app_fog.rb'
 
 class TestAppFog < Test::Unit::TestCase
 	def test_login

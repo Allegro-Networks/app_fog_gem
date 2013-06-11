@@ -1,8 +1,8 @@
 class AppFog
-	def initialize(credentials, shell_command = ShellCommandWrapper.new())
-		@shell_command = shell_command
-		@username = credentials.username
-		@password = credentials.password
+	def initialize(parameters)
+		@shell_command = parameters[:shell_command] || ShellCommandWrapper.new()
+		@username = parameters[:username]
+		@password = parameters[:password]
 		login
 	end
 
