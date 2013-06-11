@@ -21,5 +21,10 @@ class AppFog
 end
 
 class Credentials
-	attr_accessor :username, :password
+	attr_reader :username, :password
+
+	def initialize(username, password)
+		@username = username
+		@password = password
+	end
 end
