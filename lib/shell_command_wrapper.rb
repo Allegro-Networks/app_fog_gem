@@ -1,4 +1,4 @@
-class ShellCommandWrapper
+class AppFog::ShellCommandWrapper
 	def initialize(open3 = Open3)
 		@open3 = open3
 	end
@@ -15,6 +15,6 @@ class ShellCommandWrapper
 	end
 end
 
-class LoginError < StandardError
+class AppFog::LoginError < StandardError
 
 end

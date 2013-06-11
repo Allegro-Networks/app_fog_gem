@@ -5,24 +5,21 @@ require '../lib/app_fog.rb'
 
 class TestAppFog < Test::Unit::TestCase
 	def test_login
-		username = 'username'
-		password = 'password'
-		
-		credentials = Credentials.new(username, password)
+		credentials = Credentials.new(username: 'username', password: 'password')
 
 		appfog = AppFog.new(credentials, self)
 		assert_equal 'af login --email username --passwd password', @command
 	end
 
 	def test_update
-		credentials = Credentials.new(nil, nil)
+		credentials = Credentials.new(username: 'username', password: 'password')
 		appfog = AppFog.new(credentials, self)
 		appfog.update('app-name')
 		assert_equal 'af update app-name', @command
 	end
 
 	def test_start
-		credentials = Credentials.new(nil, nil)
+		credentials = Credentials.new(username: 'username', password: 'password')
 		appfog = AppFog.new(credentials, self)
 		appfog.start('app-name')
 		assert_equal 'af start app-name', @command

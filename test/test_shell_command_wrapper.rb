@@ -1,5 +1,5 @@
 require 'test/unit'
-require '../lib/shell_command_wrapper.rb'
+require '../lib/app_fog.rb'
 
 class TestShellCommandWrapper < Test::Unit::TestCase
 	def test_send_command

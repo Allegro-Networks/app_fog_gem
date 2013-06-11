@@ -1,4 +1,3 @@
-
 class AppFog
 	def initialize(credentials, shell_command = ShellCommandWrapper.new())
 		@shell_command = shell_command
@@ -21,10 +20,31 @@ class AppFog
 end
 
 class Credentials
-	attr_reader :username, :password
+  attr_reader :username, :password
+ 
+  def initialize(parameters)
+    @username = parameters[:username]
+    @password = parameters[:password]
+  end
+end
 
-	def initialize(username, password)
-		@username = username
-		@password = password
+class ShellCommandWrapper
+	def initialize(open3 = Open3)
+		@open3 = open3
 	end
+
+	def perform(command)
+		stdin, stdout, stderr = @open3.popen3 command
+		output = stdout.read unless stdout == nil
+
+		puts output
+
+		if (output != nil && output.include?('Problem with login, invalid account or password when attempting to login to'))
+			raise LoginError.new(output)
+		end
+	end
+end
+
+class LoginError < StandardError
+
 end
