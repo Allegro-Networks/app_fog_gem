@@ -2,8 +2,8 @@ Usage:
 
 task :default do
  	username = 'ben_nuttall'
-	password = 'nowthennowthen'
-	app_name = 'yewtree'
+	password = 'trolololol'
+	app_name = 'they-see-me-trollin'
 
 	credentials = Credentials.new(username, password)
 
