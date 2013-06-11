@@ -1,7 +1,7 @@
 Usage:
 
 task :default do
- 	username = 'jimmysaville'
+ 	username = 'ben_nuttall'
 	password = 'nowthennowthen'
 	app_name = 'yewtree'
 
