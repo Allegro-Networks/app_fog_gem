@@ -7,8 +7,8 @@ Currently logs you in when you create the appfog object, you can then update and
 Please tweet @ruby_gem with any problems or requests, contributions welcome.
 
 ## Installation
-`gem install af'
-`gem install app_fog' 
+`gem install af` the app fog cli needs to be installed first - https://docs.appfog.com/getting-started/af-cli
+`gem install app_fog` or put `require 'app_fog'` in your Gemfile. 
 
 ## Usage
 
