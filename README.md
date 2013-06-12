@@ -8,23 +8,22 @@ Currently logs you in when you create the appfog object, you can then update and
 Please tweet @ruby_gem with any problems or requests, contributions welcome.
 
 ## Installation
-`gem install af` the app fog cli needs to be installed first - https://docs.appfog.com/getting-started/af-cli
 
-`gem install app_fog` or put `require 'app_fog'` in your Gemfile. 
+`gem install app_fog` or put `require 'app_fog'` in your Gemfile.
 
 ## Usage
 
-	
+
 ``` ruby
 require 'app_fog'
 
 task :default do
-	your_username = 'your_email'
-	your_password = 'your_super_secret_password'
-	app_name = 'name_of_your_app_fog_app'
+  your_username = 'your_email'
+  your_password = 'your_super_secret_password'
+  app_name = 'name_of_your_app_fog_app'
 
-	appfog = AppFog.new(username: your_username, password: your_password)
-	appfog.update(app_name)
-	appfog.start(app_name)
+  appfog = AppFog.new(username: your_username, password: your_password)
+  appfog.update(app_name)
+  appfog.start(app_name)
 end
 ```

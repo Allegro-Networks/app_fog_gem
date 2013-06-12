@@ -10,5 +10,5 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.test_files  = ['test/test_app_fog.rb', 'test/test_shell_command_wrapper.rb']
   s.homepage    = 'http://rubygems.org/gems/app_fog'
-
+  s.add_dependency "af"
 end
