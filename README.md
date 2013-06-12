@@ -1,4 +1,5 @@
-app_fog_gem is a wrapper around the app fog command line interface. It's a slightly nicer way of deploying to app fog in your scripts.
+## app_fog_gem
+is a wrapper around the app fog command line interface. It's a slightly nicer way of deploying to app fog in your scripts.
 
 Ensure you have installed the af gem - https://docs.appfog.com/getting-started/af-cli
 
@@ -8,6 +9,7 @@ Please tweet @ruby_gem with any problems or requests, contributions welcome.
 
 ## Installation
 `gem install af` the app fog cli needs to be installed first - https://docs.appfog.com/getting-started/af-cli
+
 `gem install app_fog` or put `require 'app_fog'` in your Gemfile. 
 
 ## Usage
