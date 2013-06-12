@@ -28,7 +28,7 @@ end
 class ShellCommandWrapperIntegrationTest < Test::Unit::TestCase
 	def test_send_command
 		shell = ShellCommandWrapper.new()
-		shell.perform('af login')
+		shell.perform('af')
 	end
 end
 
