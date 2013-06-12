@@ -1,5 +1,4 @@
 require 'test/unit'
-require 'Open3'
 require '../lib/app_fog.rb'
 
 class TestAppFog < Test::Unit::TestCase
@@ -23,6 +22,14 @@ class TestAppFog < Test::Unit::TestCase
 	def perform(command)
 		@command = command
 	end
+end
+
+class AppFogIntegrationTest < Test::Unit::TestCase
+		def test_start
+		appfog = AppFog.new(username: 'username', password: 'password')
+		appfog.update('app-name')
+		appfog.start('app-name')
+	end	
 end
 
 

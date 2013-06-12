@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'bundler'
 require 'app_fog/shell_command_wrapper.rb'
 
 class AppFog

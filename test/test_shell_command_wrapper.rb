@@ -25,6 +25,13 @@ class TestShellCommandWrapper < Test::Unit::TestCase
 	end
 end
 
+class ShellCommandWrapperIntegrationTest < Test::Unit::TestCase
+	def test_send_command
+		shell = ShellCommandWrapper.new()
+		shell.perform('af login')
+	end
+end
+
 class FakeStdOut
 	def initialize(output)
 		@output = output

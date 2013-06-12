@@ -1,3 +1,5 @@
+require 'open3'
+
 class ShellCommandWrapper
 	def initialize(open3 = Open3)
 		@open3 = open3
