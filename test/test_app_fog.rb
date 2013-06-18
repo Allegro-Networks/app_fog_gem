@@ -30,14 +30,3 @@ class TestAppFog < Test::Unit::TestCase
 		@command = command
 	end
 end
-
-# class AppFogIntegrationTest < Test::Unit::TestCase
-# 		def test_start
-# 		appfog = AppFog.new(username: 'username', password: 'password')
-# 		appfog.update('app-name')
-# 		appfog.start('app-name')
-# 	end	
-# end
-
-
-

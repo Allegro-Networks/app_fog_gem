@@ -8,6 +8,7 @@ class ShellCommandWrapper
 	def perform(command)
 		stdin, stdout, stderr = @open3.popen3 command
 		output = stdout.read unless stdout == nil
+		output << stderr.read unless stderr == nil
 
 		puts output
 
