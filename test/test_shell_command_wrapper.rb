@@ -13,7 +13,7 @@ class TestShellCommandWrapper < Test::Unit::TestCase
 		assert_raise LoginError do
 			shell = ShellCommandWrapper.new(self)
 			shell.perform('af login --email username --passwd password')
-		end
+		end	
 	end
 
 	def popen3(command)
